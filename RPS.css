@@ -1,0 +1,172 @@
+* {box-sizing: border-box;}
+
+body {
+    background: url("RPS-bg.jpg"), linear-gradient(to right, red, skyblue );
+    background-blend-mode: screen;
+    margin: 0;
+}
+
+/* ==============
+    Typography
+============== */
+
+h1,
+p {
+    font-family: sans-serif;
+}
+
+.hands {
+    font-size: xx-large;
+}   
+
+.title {
+    grid-area: title;
+}
+
+/* ==============
+    Layout
+============== */
+
+.layout {
+    text-align: center;
+}
+
+.moves-display {
+    padding: 4em;
+    max-width: 900px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-area: main;
+}
+
+#score-display {
+    font-size: x-large;
+}
+
+.utility-section {
+    max-width: 400px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+}
+
+/* ==============
+    Buttons
+=============== */
+
+.hands {
+    padding: 2em;
+    margin: auto;
+    background-color: skyblue;
+    border-radius: 50%;
+    border: 10px solid white;
+    transition: scale 500ms;
+    cursor: pointer;
+}
+
+.utility-button {
+    padding: 1em;
+    margin: 1.4em;
+    scale: 1.2;
+    background-color: rgb(0, 255, 255, .5);
+    border: none;
+    cursor: pointer;
+    border-radius: 20px;
+    transition: background-color, 500ms;
+}
+
+.hands:hover,
+.hands:focus {
+    scale: 1.2;
+}
+
+.utility-button:hover,
+.utility-button:focus {
+    background-color: rgb(0, 255, 255);
+}
+
+.open-xtra-feat,
+.close-xtra-feat {
+    display: none;
+}
+
+
+@media (max-width: 700px) {
+    .layout {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .moves-display {
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+    }    
+
+    .hands {
+        width: 6em;
+        padding: .5em 1em;
+        font-size: 3rem;
+        border-radius: 50px;
+        margin-bottom: 0.5em;
+    }
+
+    .hands:hover,
+    .hands:focus {
+        scale: 1.1;
+    }
+
+    .title {
+        display: none;
+    }
+
+    .extra-features {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        background-color: black;
+        width: 100%;
+        top: 0;
+        left: 100%;
+        right: 0;
+        bottom: 0;
+        transform: translateX(0);
+        transition: transform 300ms;
+    }
+
+    .utility-section {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
+
+    .close-xtra-feat {
+        display: block;
+        align-self: self-start;
+        font-size: 3rem;
+        color: white;
+        background: 0;
+        border: none;
+        cursor: pointer;
+    }
+
+    #score-display {
+        order: -1;
+    }
+
+    .extra-features-mod {
+        transform: translateX(-100%);
+    }
+
+    .open-xtra-feat {
+        display: block;
+        order: -2;
+        align-self: self-end;
+        font-size: 2.4rem;
+        color: black;
+        background: 0;
+        border: none;
+        cursor: pointer;
+    }
+}
